@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Delosi.Models.Servidor>
+
+@{
+    ViewBag.Title = "IndexBuscarServidor";
+}
+
+<h2 class="text-center">Lista de Servidores</h2>
+<br />
+<hr />
+<div>
+    @using (Html.BeginForm())
+            {
+                   <em>Ingrese el nomre de la tienda</em>
+                   @Html.TextBox("nombre", "");
+                   <button class="btn btn-success">Consultar</button>
+            }
+</div>
+<p>
+    @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comp_tienda_servidor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.servidor_ip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hostname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tamaño_bd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado_tienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vers_micros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.so)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model_equipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.serial_equipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_tienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tecnico_asigando)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_instalacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomTiendaDWH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_tienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion_tienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.join_tienda)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_emp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comp_tienda_servidor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servidor_ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tamaño_bd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado_tienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vers_micros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.so)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_equipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.serial_equipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_tienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tecnico_asigando)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_instalacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomTiendaDWH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono_tienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion_tienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.join_tienda)
+            </td>
+            <td>
+                @Html.ActionLink("Actualizar", "Edit", new { id = item.nom_tienda }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.nom_tienda }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>

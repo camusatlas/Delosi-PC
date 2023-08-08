@@ -1,0 +1,66 @@
+using System;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace TuProyecto.Controllers
+{
+    public class ServidorController : Controller
+    {
+        // Tu código existente...
+
+        public ActionResult Delete(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Index"); // Redirige a la página de listado si el id es nulo o vacío.
+            }
+
+            Servidor reg = servidors().FirstOrDefault(x => x.nom_tienda == id);
+            return View(reg);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Index"); // Redirige a la página de listado si el id es nulo o vacío.
+            }
+
+            string connectionString = "TuCadenaDeConexion"; // Reemplaza con tu cadena de conexión
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Crear el comando para el procedimiento almacenado
+                    using (SqlCommand command = new SqlCommand("DeleteServidorByNomTienda", connection))
+                    {
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Agregar el parámetro "@Nom_Tienda" al comando
+                        command.Parameters.Add(new SqlParameter("@Nom_Tienda", id));
+
+                        // Ejecutar el procedimiento almacenado
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Puedes añadir aquí lógica adicional si lo deseas
+
+                        return RedirectToAction("Index"); // Redirige a la página de listado después de eliminar el registro.
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               vpn
+            }
+        }
+
+        // Tu código existente...
+    }
+}
+
